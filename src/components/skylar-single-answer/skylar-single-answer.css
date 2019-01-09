@@ -1,0 +1,12 @@
+blockquote {
+  background-color: #cbb48e;
+  margin: 8px 16px 8px 16px;
+  border-left: 6px solid #10a3c5;
+  border-right: 6px solid #10a3c5;
+}
+blockquote p {
+  padding: 8px 8px 8px 16px;
+}
+blockquote p:last-child {
+  padding: 8px 16px 8px 16px;
+}
