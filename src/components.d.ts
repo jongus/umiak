@@ -12,74 +12,38 @@ import '@stencil/core';
 
 export namespace Components {
 
-  interface LgmSingleAnswer {
-    /**
-    * The first name
-    */
-    'first': string;
-    /**
-    * The last name
-    */
-    'last': string;
-  }
-  interface LgmSingleAnswerAttributes extends StencilHTMLAttributes {
-    /**
-    * The first name
-    */
-    'first'?: string;
-    /**
-    * The last name
-    */
-    'last'?: string;
-  }
-
   interface MyComponent {
-    /**
-    * The first name
-    */
     'first': string;
-    /**
-    * The last name
-    */
     'last': string;
-    /**
-    * The middle name
-    */
     'middle': string;
   }
   interface MyComponentAttributes extends StencilHTMLAttributes {
-    /**
-    * The first name
-    */
     'first'?: string;
-    /**
-    * The last name
-    */
     'last'?: string;
-    /**
-    * The middle name
-    */
     'middle'?: string;
+  }
+
+  interface UmiakSingleAnswer {
+    'first': string;
+    'last': string;
+  }
+  interface UmiakSingleAnswerAttributes extends StencilHTMLAttributes {
+    'first'?: string;
+    'last'?: string;
   }
 }
 
 declare global {
   interface StencilElementInterfaces {
-    'LgmSingleAnswer': Components.LgmSingleAnswer;
     'MyComponent': Components.MyComponent;
+    'UmiakSingleAnswer': Components.UmiakSingleAnswer;
   }
 
   interface StencilIntrinsicElements {
-    'lgm-single-answer': Components.LgmSingleAnswerAttributes;
     'my-component': Components.MyComponentAttributes;
+    'umiak-single-answer': Components.UmiakSingleAnswerAttributes;
   }
 
-
-  interface HTMLLgmSingleAnswerElement extends Components.LgmSingleAnswer, HTMLStencilElement {}
-  var HTMLLgmSingleAnswerElement: {
-    prototype: HTMLLgmSingleAnswerElement;
-    new (): HTMLLgmSingleAnswerElement;
-  };
 
   interface HTMLMyComponentElement extends Components.MyComponent, HTMLStencilElement {}
   var HTMLMyComponentElement: {
@@ -87,14 +51,20 @@ declare global {
     new (): HTMLMyComponentElement;
   };
 
+  interface HTMLUmiakSingleAnswerElement extends Components.UmiakSingleAnswer, HTMLStencilElement {}
+  var HTMLUmiakSingleAnswerElement: {
+    prototype: HTMLUmiakSingleAnswerElement;
+    new (): HTMLUmiakSingleAnswerElement;
+  };
+
   interface HTMLElementTagNameMap {
-    'lgm-single-answer': HTMLLgmSingleAnswerElement
     'my-component': HTMLMyComponentElement
+    'umiak-single-answer': HTMLUmiakSingleAnswerElement
   }
 
   interface ElementTagNameMap {
-    'lgm-single-answer': HTMLLgmSingleAnswerElement;
     'my-component': HTMLMyComponentElement;
+    'umiak-single-answer': HTMLUmiakSingleAnswerElement;
   }
 
 

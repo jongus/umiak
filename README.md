@@ -1,4 +1,4 @@
-# skylar
+# Umiak quiz
 
 ```bash
 git clone https://github.com/ionic-team/stencil-component-starter.git my-component
