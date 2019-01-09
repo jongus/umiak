@@ -24,12 +24,20 @@ export namespace Components {
   }
 
   interface UmiakSingleAnswer {
-    'first': string;
-    'last': string;
+    'alternative_a': string;
+    'alternative_b': string;
+    'alternative_c': string;
+    'alternative_d': string;
+    'heading': string;
+    'question': string;
   }
   interface UmiakSingleAnswerAttributes extends StencilHTMLAttributes {
-    'first'?: string;
-    'last'?: string;
+    'alternative_a'?: string;
+    'alternative_b'?: string;
+    'alternative_c'?: string;
+    'alternative_d'?: string;
+    'heading'?: string;
+    'question'?: string;
   }
 }
 

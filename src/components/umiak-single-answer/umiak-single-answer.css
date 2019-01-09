@@ -1,4 +1,10 @@
 .container {
+  font-family: "-apple-system", "BlinkMacSystemFont", "Segoe UI", "Roboto",
+    "Helvetica", "Arial", "sans-serif", "Apple Color Emoji", "Segoe UI Emoji",
+    "Segoe UI Symbol";
+  font-size: 16px;
+  line-height: 1.625;
+  color: #2e3830;
   background-color: #cbb48e;
   margin: 8px 16px 8px 16px;
   border-left: 6px solid #10a3c5;
@@ -8,13 +14,54 @@
 .heading {
   margin: 0 0 0 0;
   padding: 8px 8px 8px 16px;
+  font-weight: 900;
 }
 
 .question {
   margin: 0 0 0 0;
-  padding: 8px 8px 8px 16px;
+  padding: 0px 8px 16px 16px;
 }
 
 .alternative {
   border: 1px solid #10a3c5;
+  margin: 8px 16px 8px 16px;
+  padding: 8px 8px 8px 16px;
+}
+
+.footer {
+  margin: 0 0 0 0;
+  padding: 0 8px 8px 16px;
+}
+
+.correct {
+  background-color: #10c532;
+}
+
+.wrong {
+  background-color: #c53211;
+  color: #e6dbc9;
+}
+
+input[type="radio"] {
+  margin: 0 10px 0 -24px;
+}
+
+label {
+  padding: 0 0 0 24px;
+  margin: 0 0 0 0;
+  text-align: left;
+  display: block;
+}
+
+button {
+  background-color: #10a3c5;
+  border: none;
+  color: #e6dbc9;
+  padding: 8px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
 }
