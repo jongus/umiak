@@ -1,12 +1,20 @@
-blockquote {
+.container {
   background-color: #cbb48e;
   margin: 8px 16px 8px 16px;
   border-left: 6px solid #10a3c5;
   border-right: 6px solid #10a3c5;
 }
-blockquote p {
+
+.heading {
+  margin: 0 0 0 0;
   padding: 8px 8px 8px 16px;
 }
-blockquote p:last-child {
-  padding: 8px 16px 8px 16px;
+
+.question {
+  margin: 0 0 0 0;
+  padding: 8px 8px 8px 16px;
+}
+
+.alternative {
+  border: 1px solid #10a3c5;
 }

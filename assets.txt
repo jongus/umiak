@@ -4,3 +4,8 @@
     "test": "stencil test --spec --e2e",
     "test.watch": "stencil test --spec --e2e --watchAll"
   },
+
+
+  .container p:last-child {
+  padding: 8px 16px 8px 16px;
+}

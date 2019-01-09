@@ -9,11 +9,15 @@ export class UmiakSingleAnswer {
   @Prop() first: string;
   @Prop() last: string;
 
-  private getText(): string {
-    return this.first + "-" + this.last;
-  }
-
   render() {
-    return <div>UmiakSingleAnswer: {this.getText()}</div>;
+    return (
+      <div class="container">
+        <p class="heading">Fråga 4</p>
+        <p class="question">Detta är en fråga liksom</p>
+        <div class="alternative">
+          <input type="radio" name="gender" value="male" /> Male
+        </div>
+      </div>
+    );
   }
 }
