@@ -34,11 +34,12 @@
 }
 
 .correct {
-  background-color: #10c532;
+  background-color: #0a7e24;
+  color: #e6dbc9;
 }
 
 .wrong {
-  background-color: #c53211;
+  background-color: #96260d;
   color: #e6dbc9;
 }
 

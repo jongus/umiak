@@ -36,7 +36,7 @@ export class UmiakSingleAnswer {
             {this.alternative_c}
           </label>
         </div>
-        <div class="alternative">
+        <div class="alternative correct">
           <label>
             <input type="radio" name="alt" value="d" />
             {this.alternative_d}
