@@ -29,7 +29,9 @@ export namespace Components {
     'alternative_c': string;
     'alternative_d': string;
     'heading': string;
+    'load': () => void;
     'question': string;
+    'test': () => void;
   }
   interface UmiakSingleAnswerAttributes extends StencilHTMLAttributes {
     'alternative_a'?: string;
