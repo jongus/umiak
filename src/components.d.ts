@@ -23,6 +23,17 @@ export namespace Components {
     'middle'?: string;
   }
 
+  interface UmiakQuiz {
+    'heading': string;
+    'load': () => void;
+    'question': string;
+    'test': () => void;
+  }
+  interface UmiakQuizAttributes extends StencilHTMLAttributes {
+    'heading'?: string;
+    'question'?: string;
+  }
+
   interface UmiakSingleAnswer {
     'alternative_a': string;
     'alternative_b': string;
@@ -46,11 +57,13 @@ export namespace Components {
 declare global {
   interface StencilElementInterfaces {
     'MyComponent': Components.MyComponent;
+    'UmiakQuiz': Components.UmiakQuiz;
     'UmiakSingleAnswer': Components.UmiakSingleAnswer;
   }
 
   interface StencilIntrinsicElements {
     'my-component': Components.MyComponentAttributes;
+    'umiak-quiz': Components.UmiakQuizAttributes;
     'umiak-single-answer': Components.UmiakSingleAnswerAttributes;
   }
 
@@ -61,6 +74,12 @@ declare global {
     new (): HTMLMyComponentElement;
   };
 
+  interface HTMLUmiakQuizElement extends Components.UmiakQuiz, HTMLStencilElement {}
+  var HTMLUmiakQuizElement: {
+    prototype: HTMLUmiakQuizElement;
+    new (): HTMLUmiakQuizElement;
+  };
+
   interface HTMLUmiakSingleAnswerElement extends Components.UmiakSingleAnswer, HTMLStencilElement {}
   var HTMLUmiakSingleAnswerElement: {
     prototype: HTMLUmiakSingleAnswerElement;
@@ -69,11 +88,13 @@ declare global {
 
   interface HTMLElementTagNameMap {
     'my-component': HTMLMyComponentElement
+    'umiak-quiz': HTMLUmiakQuizElement
     'umiak-single-answer': HTMLUmiakSingleAnswerElement
   }
 
   interface ElementTagNameMap {
     'my-component': HTMLMyComponentElement;
+    'umiak-quiz': HTMLUmiakQuizElement;
     'umiak-single-answer': HTMLUmiakSingleAnswerElement;
   }
 
