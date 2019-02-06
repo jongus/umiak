@@ -27,6 +27,18 @@ export class UmiakSingleAnswer {
     console.log("componentDidLoad");
   }
 
+  componentWillUpdate() {
+    console.log('componentWillUpdate');
+  }
+
+  componentDidUpdate() {
+    console.log('componentDidUpdate');
+  }
+
+  componentDidUnload() {
+    console.log('componentDidUnload');
+  }
+
   render() {
     return (
       <div class="container">
