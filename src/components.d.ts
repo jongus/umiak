@@ -39,7 +39,7 @@ export namespace Components {
     'alt_b': string;
     'alt_c': string;
     'alt_d': string;
-    'answer': () => void;
+    'answer': (event: Event) => void;
     'heading': string;
     'point_a': number;
     'point_b': number;
