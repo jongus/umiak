@@ -1,4 +1,4 @@
-import { Component, Prop, State, Method } from "@stencil/core";
+import { Component, Prop, Method } from "@stencil/core";
 
 @Component({
   tag: "umiak-single-answer",
@@ -7,87 +7,58 @@ import { Component, Prop, State, Method } from "@stencil/core";
 })
 export class UmiakSingleAnswer {
   @Prop() heading: string;
-  @Prop({ mutable: true }) question: string;
-  @Prop() alternative_a: string;
-  @Prop() alternative_b: string;
-  @Prop() alternative_c: string;
-  @Prop() alternative_d: string;
-
-  @State() data: any[];
-
-  @Method()
-  load() {
-    fetch(
-      `https://utbildningsvera.azurewebsites.net/api/test?code=6eZ1RDX4e4rXSaSLpyE2qxte8ops4ar0B/jpKTeducYwhjYfY7ktng==&name=EN%20TEST`
-    )
-      .then(rsp => {
-        return rsp.json();
-      })
-      .then(data => {
-        this.data = data;
-        console.log("2data: " + data.Message);
-      })
-      .catch(err => {
-        console.error("Could not load data", err);
-      });
-  }
+  @Prop() question: string;
+  @Prop() alt_a: string;
+  @Prop() alt_b: string;
+  @Prop() alt_c: string;
+  @Prop() alt_d: string;
+  @Prop() point_a: number = 0;
+  @Prop() point_b: number = 0;
+  @Prop() point_c: number = 0;
+  @Prop() point_d: number = 0;
 
   @Method()
-  test() {
-    this.question = "hfjhfjks";
-    // return void;
-  }
+  answer() {}
 
   componentWillLoad() {
-    // Use this?
     console.log("componentWillLoad");
-    // this.load();
   }
   componentDidLoad() {
-    // this.load();
     console.log("componentDidLoad");
   }
 
   render() {
-    let myname = null;
-    // myname = this.test();
-    // if (this.test) {
-    // myname = this.data["Message"];
-    // myname = this.test();
-    // console.log("data: " + this.data["Message"]);
-    // }
-
     return (
       <div class="container">
         <p class="heading">{this.heading}</p>
         <p class="question">{this.question}</p>
-        <div class="alternative">
+        <div class="alternative" id="alt_a">
           <label>
             <input type="radio" name="alt" value="a" />
-            {this.alternative_a}
+            {this.alt_a}
           </label>
         </div>
-        <div class="alternative">
+        <div class="alternative" id="alt_b">
           <label>
             <input type="radio" name="alt" value="b" />
-            {this.alternative_b}
+            {this.alt_b}
           </label>
         </div>
-        <div class="alternative wrong">
+        <div class="alternative" id="alt_c">
           <label>
             <input type="radio" name="alt" value="c" />
-            {this.alternative_c}
+            {this.alt_c}
           </label>
         </div>
-        <div class="alternative correct">
+        <div class="alternative" id="alt_d">
           <label>
             <input type="radio" name="alt" value="d" />
-            {this.alternative_d}
+            {this.alt_d}
           </label>
         </div>
         <div class="footer">
-          <button onClick={this.test.bind(this)}>SVARA</button>&nbsp;Försök 0 av
-          2. {myname}
+          <button onClick={this.answer.bind(this)}>SVARA</button>&nbsp;Försök 0
+          av 2.
         </div>
       </div>
     );

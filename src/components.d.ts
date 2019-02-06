@@ -35,21 +35,28 @@ export namespace Components {
   }
 
   interface UmiakSingleAnswer {
-    'alternative_a': string;
-    'alternative_b': string;
-    'alternative_c': string;
-    'alternative_d': string;
+    'alt_a': string;
+    'alt_b': string;
+    'alt_c': string;
+    'alt_d': string;
+    'answer': () => void;
     'heading': string;
-    'load': () => void;
+    'point_a': number;
+    'point_b': number;
+    'point_c': number;
+    'point_d': number;
     'question': string;
-    'test': () => void;
   }
   interface UmiakSingleAnswerAttributes extends StencilHTMLAttributes {
-    'alternative_a'?: string;
-    'alternative_b'?: string;
-    'alternative_c'?: string;
-    'alternative_d'?: string;
+    'alt_a'?: string;
+    'alt_b'?: string;
+    'alt_c'?: string;
+    'alt_d'?: string;
     'heading'?: string;
+    'point_a'?: number;
+    'point_b'?: number;
+    'point_c'?: number;
+    'point_d'?: number;
     'question'?: string;
   }
 }
