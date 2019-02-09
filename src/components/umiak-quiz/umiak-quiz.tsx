@@ -1,4 +1,4 @@
-import { Component, Prop, State, Method } from "@stencil/core";
+import { Component, Prop, State, Method, Listen } from "@stencil/core";
 
 @Component({
   tag: "umiak-quiz",
@@ -10,6 +10,7 @@ export class UmiakQuiz {
   @Prop({ mutable: true }) question: string;
 
   @State() data: any[];
+  @State() points: number = 0;
 
   @Method()
   load() {
@@ -28,26 +29,16 @@ export class UmiakQuiz {
       });
   }
 
-  @Method()
-  test() {
-    this.question = "hfjhfjks";
-    // return void;
-  }
-
-  componentWillLoad() {
-    // Use this?
-    console.log("componentWillLoad");
-    // this.load();
-  }
-  componentDidLoad() {
-    // this.load();
-    console.log("componentDidLoad");
+  @Listen("body:umiakAnswer")
+  onEventUmiakAnswer(event: CustomEvent) {
+    console.log("onEventUmiakAnswer: " + event.detail);
+    this.points += event.detail;
   }
 
   render() {
     return (
       <div class="container">
-        <p class="heading">UMIAK YTTER</p>
+        <p class="heading">Points {this.points}</p>
         <slot />
         <div class="footer">SLUT YTTRE</div>
       </div>

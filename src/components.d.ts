@@ -8,6 +8,9 @@
 import '@stencil/core';
 
 
+import {
+  Event,
+} from '@stencil/core';
 
 
 export namespace Components {
@@ -27,7 +30,6 @@ export namespace Components {
     'heading': string;
     'load': () => void;
     'question': string;
-    'test': () => void;
   }
   interface UmiakQuizAttributes extends StencilHTMLAttributes {
     'heading'?: string;
@@ -41,6 +43,7 @@ export namespace Components {
     'alt_d': string;
     'handleOnAnswer': (event: Event) => void;
     'heading': string;
+    'onAltClick': () => void;
     'point_a': number;
     'point_b': number;
     'point_c': number;
@@ -53,6 +56,7 @@ export namespace Components {
     'alt_c'?: string;
     'alt_d'?: string;
     'heading'?: string;
+    'onUmiakAnswer'?: (event: CustomEvent<number>) => void;
     'point_a'?: number;
     'point_b'?: number;
     'point_c'?: number;

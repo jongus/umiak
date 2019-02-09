@@ -1,4 +1,12 @@
-import { Component, Prop, Method, Element } from "@stencil/core";
+import {
+  Component,
+  Prop,
+  Method,
+  Element,
+  State,
+  Event,
+  EventEmitter
+} from "@stencil/core";
 
 @Component({
   tag: "umiak-single-answer",
@@ -19,22 +27,14 @@ export class UmiakSingleAnswer {
 
   @Element() el: HTMLElement;
 
+  @State() answerIsEnabled = true;
+
+  @Event({ bubbles: true, composed: true }) umiakAnswer: EventEmitter<number>;
+
   @Method()
   handleOnAnswer(event: Event) {
     event.preventDefault();
     let points: number = 0;
-    this.el.shadowRoot
-      .querySelector("#alt_a")
-      .classList.remove("wrong", "correct");
-    this.el.shadowRoot
-      .querySelector("#alt_b")
-      .classList.remove("wrong", "correct");
-    this.el.shadowRoot
-      .querySelector("#alt_c")
-      .classList.remove("wrong", "correct");
-    this.el.shadowRoot
-      .querySelector("#alt_d")
-      .classList.remove("wrong", "correct");
     if (
       (this.el.shadowRoot.querySelector("#radio_a") as HTMLInputElement).checked
     ) {
@@ -64,14 +64,32 @@ export class UmiakSingleAnswer {
         .querySelector("#alt_d")
         .classList.add(this.point_d > 0 ? "correct" : "wrong");
     }
-
-    console.log(
-      (this.el.shadowRoot.querySelector("#radio_b") as HTMLInputElement).checked
-    );
     this.el.shadowRoot.querySelector(
       "#userpoints"
     ).innerHTML = points.toString();
-    console.log(event);
+
+    if (points > 0) {
+      // console.log(points);
+      this.umiakAnswer.emit(points);
+      this.answerIsEnabled = false;
+    }
+    // console.log(event);
+  }
+
+  @Method()
+  onAltClick() {
+    this.el.shadowRoot
+      .querySelector("#alt_a")
+      .classList.remove("wrong", "correct");
+    this.el.shadowRoot
+      .querySelector("#alt_b")
+      .classList.remove("wrong", "correct");
+    this.el.shadowRoot
+      .querySelector("#alt_c")
+      .classList.remove("wrong", "correct");
+    this.el.shadowRoot
+      .querySelector("#alt_d")
+      .classList.remove("wrong", "correct");
   }
 
   componentWillLoad() {
@@ -102,30 +120,61 @@ export class UmiakSingleAnswer {
         <form onSubmit={this.handleOnAnswer.bind(this)}>
           <div class="alternative" id="alt_a">
             <label>
-              <input type="radio" name="alt" value="a" id="radio_a" />
+              <input
+                type="radio"
+                name="alt"
+                value="a"
+                id="radio_a"
+                onChange={this.onAltClick.bind(this)}
+                disabled={!this.answerIsEnabled}
+              />
               {this.alt_a}
             </label>
           </div>
           <div class="alternative" id="alt_b">
             <label>
-              <input type="radio" name="alt" value="b" id="radio_b" />
+              <input
+                type="radio"
+                name="alt"
+                value="b"
+                id="radio_b"
+                onChange={this.onAltClick.bind(this)}
+                disabled={!this.answerIsEnabled}
+              />
               {this.alt_b}
             </label>
           </div>
           <div class="alternative" id="alt_c">
             <label>
-              <input type="radio" name="alt" value="c" id="radio_c" />
+              <input
+                type="radio"
+                name="alt"
+                value="c"
+                id="radio_c"
+                onChange={this.onAltClick.bind(this)}
+                disabled={!this.answerIsEnabled}
+              />
               {this.alt_c}
             </label>
           </div>
           <div class="alternative" id="alt_d">
             <label>
-              <input type="radio" name="alt" value="d" id="radio_d" />
+              <input
+                type="radio"
+                name="alt"
+                value="d"
+                id="radio_d"
+                onChange={this.onAltClick.bind(this)}
+                disabled={!this.answerIsEnabled}
+              />
               {this.alt_d}
             </label>
           </div>
           <div class="footer">
-            <button type="submit">SVARA</button>&nbsp;Poäng på denna fråga:
+            <button type="submit" disabled={!this.answerIsEnabled}>
+              SVARA
+            </button>
+            &nbsp;Poäng på denna fråga:
             <span id="userpoints">-</span>
           </div>
         </form>
